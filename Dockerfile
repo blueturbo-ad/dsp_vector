@@ -14,23 +14,27 @@ RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSIO
 # RUN wget https://packages.timber.io/vector/0.28.2/vector-0.28.2-x86_64-unknown-linux-musl.tar.gz
 
 # 添加 Vector 文件到容器中
-ADD vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz /tmp/
+#ADD vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz /tmp/
 # ADD vector-0.28.2-x86_64-unknown-linux-musl.tar.gz /tmp/
 
+# 为文件添加可执行权限
+RUN chmod +x vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz 
+# RUN chmod +x vector-0.28.2-x86_64-unknown-linux-musl.tar.gz
+
 # 解压文件
-RUN tar -xzf /tmp/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz -C /usr/local/bin --strip-components=1
-# RUN tar -xzf /tmp/vector-0.28.2-x86_64-unknown-linux-musl.tar.gz -C /usr/local/bin --strip-components=1   
+RUN tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz 
+# RUN tar -xzf vector-0.28.2-x86_64-unknown-linux-musl.tar.gz 
+
+RUN mv vector-x86_64-unknown-linux-musl vector
+# RUN mv vector-0.28.2-x86_64-unknown-linux-musl vector
 
 # 清理临时文件
-RUN rm /tmp/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
+RUN rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 # RUN rm /tmp/vector-0.28.2-x86_64-unknown-linux-musl.tar.gz
 
-#tar -xzf vector-0.28.2-x86_64-unknown-linux-musl.tar.gz -C ./vector
-RUN tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz 
-RUN  rm -rf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 
 # 验证安装
-RUN ./vector/bin/vector --version
+#RUN ./vector/bin/vector --version
 
 # 设置时区
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -39,4 +43,4 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY vector.toml /etc/vector/vector.toml
 
 # 启动 Vector
-CMD ["vector", "--config", "/etc/vector/vector.toml"]
+CMD ["./vector/bin/vector", "--config", "/etc/vector/vector.toml"]
