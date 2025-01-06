@@ -23,7 +23,11 @@ sinks:
   out_to_kafka:
     type: kafka
     inputs:
-      - bid_logs
+      - system_logger
+      - framework_logger
+      - bid_logger
+      - vector_tcp_source
+      
     bootstrap_servers: "bootstrap.blueturbo-sg-kafka.asia-southeast1.managedkafka.blueturbo.cloud.goog:9092"
     topic: "__remote_log_metadata"
     encoding:
