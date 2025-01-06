@@ -1,0 +1,30 @@
+sources:
+  system_logger:
+    type: file
+    include:
+      - "/log/system_logger*.log"
+
+  framework_logger:
+    type: file
+    include:
+      - "/log/framework_logger*.log"
+
+  bid_logger:
+    type: file
+    include:
+      - "/log/bid_logger*.log"
+
+  vector_tcp_source:
+    type: socket
+    address: "0.0.0.0:9000"
+    mode: tcp
+
+sinks:
+  out_to_kafka:
+    type: kafka
+    inputs:
+      - bid_logs
+    bootstrap_servers: "bootstrap.blueturbo-sg-kafka.asia-southeast1.managedkafka.blueturbo.cloud.goog:9092"
+    topic: "__remote_log_metadata"
+    encoding:
+      codec: json

@@ -40,7 +40,7 @@ RUN rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 #RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 复制 Vector 配置文件
-COPY vector.toml /etc/vector/vector.toml
+COPY vector.yaml /etc/vector/vector.yaml
 
 # 启动 Vector
-CMD ["./vector/bin/vector", "--config", "/etc/vector/vector.toml"]
+CMD ["./vector/bin/vector", "--config", "/etc/vector/vector.yaml"]
