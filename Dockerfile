@@ -37,7 +37,7 @@ RUN rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 #RUN ./vector/bin/vector --version
 
 # 设置时区
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+#RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 复制 Vector 配置文件
 COPY vector.toml /etc/vector/vector.toml
