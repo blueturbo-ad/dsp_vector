@@ -12,11 +12,11 @@ ENV VECTOR_VERSION=0.28.2
 # 下载和解压 Vector
 RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz 
 RUN tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
-RUN mv vector-$VECTOR_VERSION-x86_64-unknown-linux-musl/vector /usr/local/bin/ 
+RUN mv vector-$VECTOR_VERSION-x86_64-unknown-linux-musl/vector ./vector 
 RUN  rm -rf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl*
 
 # 验证安装
-RUN vector --version
+RUN ./vector/bin/vector --version
 
 # 设置时区
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
