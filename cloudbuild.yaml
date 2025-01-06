@@ -19,8 +19,8 @@ steps:
     args: 
       - set
       - image
-      - deployment/dsp-bid-server-deployment
-      - dsp-bid-server-container=${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${_TAG}
+      - deployment/vector-deployment
+      - vector-container=${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${_TAG}
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1' # 替换为您的 GKE 集群所在区域
       - 'CLOUDSDK_CONTAINER_CLUSTER=blueturbo-gke-test' # 替换为您的 GKE 集群名称
@@ -40,7 +40,7 @@ substitutions:
     _GO_VERSION: 1.23.4
     _LOCATION: asia-southeast1 # 例如 us-central1
     _PROJECT_ID: blueturbo # 您的 GCP 项目 ID
-    _REPOSITORY: blueturbo-dsp-server # ar镜像仓库
+    _REPOSITORY: blueturbo-dsp-vector # ar镜像仓库
     _IMAGE: dsp_vector # 例如 my-app
     _TAG: $COMMIT_SHA # 使用提交哈希作为标签
 
