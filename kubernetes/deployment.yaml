@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vector-deployment
+  name: vector
   namespace: dsp-ns
 spec:
   replicas: 1  # 指定应用的副本数
   selector:
     matchLabels:
-      app: vector
+      app: v
   template:
     metadata:
       labels:
@@ -18,7 +18,7 @@ spec:
         image: $IMAGE
         volumeMounts:
           - name: dsp-server-storage
-            mountPath: /app/logs  # Container path where logs will be available
+            mountPath: /logs  # Container path where logs will be available
         resources:
           requests:
             memory: "128Mi"
