@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dsp-bid-server-deployment
+  name: vector-deployment
   namespace: dsp-ns
 spec:
   replicas: 1  # 指定应用的副本数
