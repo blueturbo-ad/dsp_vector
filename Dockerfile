@@ -10,10 +10,10 @@ RUN apk update && apk add --no-cache ca-certificates wget
 ENV VECTOR_VERSION=0.28.2
 
 # 下载和解压 Vector
-RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
-    tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
-    mv vector-$VECTOR_VERSION-x86_64-unknown-linux-musl/vector /usr/local/bin/ && \
-    rm -rf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl*
+RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz 
+RUN tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
+RUN mv vector-$VECTOR_VERSION-x86_64-unknown-linux-musl/vector /usr/local/bin/ 
+RUN  rm -rf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl*
 
 # 验证安装
 RUN vector --version
