@@ -18,7 +18,6 @@ sources.bid_logger
 type = "file"
 include = ["/var/log/bid_logger*.log"]
 
-
 # Sink: Send logs to Kafka
 [
 sinks.out_to_kafka
