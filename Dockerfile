@@ -1,5 +1,5 @@
 # 使用最新的 Vector 官方镜像
-FROM timberio/vector:latest
+FROM  timberio/vector:0.30.0
 
 # 将本地的配置文件复制到镜像中
 COPY vector.toml /etc/vector/vector.toml
