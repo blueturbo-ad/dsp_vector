@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vector
+  name: dsp_vector-deployment
   namespace: dsp-ns
 spec:
   replicas: 1  # 指定应用的副本数

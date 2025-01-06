@@ -19,7 +19,7 @@ steps:
     args: 
       - set
       - image
-      - deployment/dsp_vector
+      - deployment/dsp_vector-deployment
       - vector-container=${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${_TAG}
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1' # 替换为您的 GKE 集群所在区域
