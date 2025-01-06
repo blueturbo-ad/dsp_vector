@@ -13,11 +13,16 @@ RUN wget https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VE
     mv kafka_${SCALA_VERSION}-${KAFKA_VERSION} /opt/kafka && \
     rm kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
+
+# 设置环境变量
+ENV VECTOR_VERSION=0.28.2
+
 # 安装 Vector
-RUN wget https://packages.timber.io/vector/0.30.1/vector-0.30.1-x86_64-unknown-linux-gnu.tar.gz && \
-    tar -xzf vector-0.30.1-x86_64-unknown-linux-gnu.tar.gz && \
-    mv vector /usr/local/bin/ && \
-    rm vector-0.30.1-x86_64-unknown-linux-gnu.tar.gz
+RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz  && \
+tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
+mv vector /usr/local/bin/ && \
+rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
+
 
 # 添加 Vector 配置文件
 COPY vector.yaml /etc/vector/vector.yaml
