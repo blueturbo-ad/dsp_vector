@@ -7,7 +7,7 @@ spec:
   replicas: 1  # 指定应用的副本数
   selector:
     matchLabels:
-      app: v
+      app: vector
   template:
     metadata:
       labels:
