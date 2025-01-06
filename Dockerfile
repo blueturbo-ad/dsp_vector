@@ -1,10 +1,10 @@
-FROM golang:1.23.4 AS builder
+FROM alpine:latest
 # FROM 027749810177.dkr.ecr.us-east-1.amazonaws.com/dsp-env:v1
 
 WORKDIR /dsp_vector
 
 # 安装必要的工具
-RUN apk add --no-cache ca-certificates wget
+RUN apk update && apk add --no-cache ca-certificates wget
 
 # 下载并解压 Vector
 RUN wget -qO- https://packages.timber.io/vector/0.28.X/vector-0.28.X-x86_64-unknown-linux-musl.tar.gz | tar xz -C /usr/local/bin
