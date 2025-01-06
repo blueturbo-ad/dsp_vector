@@ -3,20 +3,20 @@
 sources.system_logger
 ]
 type = "file"
-include = ["/var/log/system_logger*.log"]  # 假设日志文件挂载到此路径
+include = ["/log/system_logger*.log"]  # 假设日志文件挂载到此路径
 
 
 [
 sources.framework_logger
 ]
 type = "file"
-include = ["/var/log/framework_logger*.log"]
+include = ["/log/framework_logger*.log"]
 
 [
 sources.bid_logger
 ]
 type = "file"
-include = ["/var/log/bid_logger*.log"]
+include = ["/log/bid_logger*.log"]
 
 # Sink: Send logs to Kafka
 [
