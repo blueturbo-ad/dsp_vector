@@ -4,10 +4,19 @@ FROM alpine:latest
 WORKDIR /dsp_vector
 
 # 安装必要的工具
-#RUN apk update && apk add --no-cache ca-certificates wget
+RUN apk update && apk add --no-cache ca-certificates wget
 
-# 下载并解压 Vector
-RUN tar xzf vector-0.28.2-x86_64-unknown-linux-musl.tar.gz -C /usr/local/bin
+# 设置环境变量
+ENV VECTOR_VERSION=0.28.2
+
+# 下载和解压 Vector
+RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
+    tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
+    mv vector-$VECTOR_VERSION-x86_64-unknown-linux-musl/vector /usr/local/bin/ && \
+    rm -rf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl*
+
+# 验证安装
+RUN vector --version
 
 # 设置时区
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
