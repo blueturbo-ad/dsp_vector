@@ -26,8 +26,7 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "200m"
-     volumes:
+      volumes:  # 确保这里的缩进与 containers 对齐
       - name: dsp-server-storage
         persistentVolumeClaim:
           claimName: dsp-server-pvc
-
