@@ -18,6 +18,14 @@ sources.bid_logger
 type = "file"
 include = ["/log/bid_logger*.log"]
 
+
+[
+sources.my_tcp_source
+]
+type = "socket"
+address = "0.0.0.0:9000"  # Vector 将监听 9000 端口
+mode = "tcp"
+
 # Sink: Send logs to Kafka
 [
 sinks.out_to_kafka
