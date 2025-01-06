@@ -1,0 +1,16 @@
+# Source: Collect logs from a specific file path
+[
+sources.bid_logs
+]
+type = "file"
+include = ["/dsp_bid_server/log/*.log"]  # 假设日志文件挂载到此路径
+
+# Sink: Send logs to Kafka
+[
+sinks.out_to_kafka
+]
+type = "kafka"
+inputs = ["bid_logs"]
+bootstrap_servers = "your-kafka-broker:9092"  # Replace with your Kafka broker address
+topic = "your-topic"  # Replace with your Kafka topic
+encoding.codec = "json"  # Send logs in JSON format
