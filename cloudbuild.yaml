@@ -19,8 +19,10 @@ steps:
     args: 
       - set
       - image
-      - deployment/vector-deployment
+      - deployment/vector
       - vector-container=${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${_TAG}
+      - -n
+      - dsp-ns
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1' # 替换为您的 GKE 集群所在区域
       - 'CLOUDSDK_CONTAINER_CLUSTER=blueturbo-gke-test' # 替换为您的 GKE 集群名称
