@@ -1,8 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vector
+  name: vector-deployment
   namespace: dsp-ns
+  labels:
+    app: vector
 spec:
   replicas: 1  # 指定应用的副本数
   selector:
@@ -18,14 +20,17 @@ spec:
         image: $IMAGE
         volumeMounts:
           - name: dsp-server-storage
-            mountPath: "/data"  # Container path where logs will be available
+            mountPath: /logs  # Container path where logs will be available
+        ports:
+        - containerPort: 9000  # 容器监听的端口
+          protocol: TCP
         resources:
           requests:
-            memory: "128Mi"
-            cpu: "100m"
+            memory: "2048Mi"
+            cpu: "500m"
           limits:
-            memory: "256Mi"
-            cpu: "200m"
+            memory: "2048Mi"
+            cpu: "500m"
       volumes:  # 确保这里的缩进与 containers 对齐
       - name: dsp-server-storage
         persistentVolumeClaim:
