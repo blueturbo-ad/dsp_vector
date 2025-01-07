@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # 安装必要的工具和 Java
-RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless 
+RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless
 
 # 安装 Kafka
 #ENV KAFKA_VERSION=3.3.1
@@ -33,7 +33,7 @@ COPY vector.yaml /etc/vector/vector.yaml
 EXPOSE 9000
 #EXPOSE 9092 2181 9000
 
-#RUN vector/bin/vector validate /etc/vector/vector.yaml
+RUN vector/bin/vector validate /etc/vector/vector.yaml
 
 # 启动 Kafka、Zookeeper 和 Vector
 CMD ["vector/bin/vector", "-c", "/etc/vector/vector.yaml"]
