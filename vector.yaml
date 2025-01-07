@@ -28,5 +28,9 @@ sinks:
 
     bootstrap_servers: "bootstrap.blueturbo-sg-kafka.asia-southeast1.managedkafka.blueturbo.cloud.goog:9092"
     topic: "__remote_log_metadata"
+
+    tls:
+      enabled: true
+      
     encoding:
       codec: json
