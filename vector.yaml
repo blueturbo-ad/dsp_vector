@@ -24,7 +24,6 @@ sinks:
     type: kafka
     inputs:
       - system_logger
-      - bid_logger
 
 
     bootstrap_servers: "bootstrap.blueturbo-sg-kafka.asia-southeast1.managedkafka.blueturbo.cloud.goog:9092"
