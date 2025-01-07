@@ -29,15 +29,16 @@ sinks:
     bootstrap_servers: "bootstrap.blueturbo-sg-kafka.asia-southeast1.managedkafka.blueturbo.cloud.goog:9092"
     topic: "__remote_log_metadata"
 
- 
+    # 启用 SSL/TLS 配置
+    #tls:
+    #  enabled: true
     
-    # SASL 配置
-    auth:
-      strategy: "sasl"
-      sasl:
-        mechanism: "PLAIN"
-        username: "guangxinliu2024@gmail.com"
-        password: "bGl1YmVpZXIyMDIw"  # 待解码的 base64 密码内容
+        # SASL 配置
+    sasl:
+      enabled: true
+      mechanism: "plain"
+      username: "guangxinliu2024@gmail.com"
+      password: "bGl1YmVpZXIyMDIw"  # 这里放置解码后的密码
 
     encoding:
       codec: json
