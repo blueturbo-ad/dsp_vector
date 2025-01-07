@@ -1,16 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vector-deployment
+  name: vector
   namespace: dsp-ns
   labels:
     app: vector
 spec:
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 1
+  replicas: 1
   selector:
     matchLabels:
       app: vector
