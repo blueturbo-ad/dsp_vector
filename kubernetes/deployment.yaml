@@ -30,11 +30,11 @@ spec:
           protocol: TCP
         resources:
           requests:
-            memory: "2048Mi"
-            cpu: "500m"
+            memory: "256Mi"
+            cpu: "100m"
           limits:
-            memory: "2048Mi"
-            cpu: "500m"
+            memory: "512Mi"
+            cpu: "200m"
       volumes:  # 确保这里的缩进与 containers 对齐
       - name: dsp-server-storage
         persistentVolumeClaim:
