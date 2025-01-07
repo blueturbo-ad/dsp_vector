@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vector
+  name: vector-deployment
   namespace: dsp-ns
   labels:
     app: vector
