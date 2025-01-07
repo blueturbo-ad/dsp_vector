@@ -1,4 +1,4 @@
-FROM timberio/vector:latest
+FROM timberio/vector:0.31.0
 # 使用基础镜像
 # FROM ubuntu:20.04
 
