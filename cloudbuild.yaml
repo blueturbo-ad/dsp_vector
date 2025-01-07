@@ -18,15 +18,6 @@ steps:
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args: 
-      - apply
-      - -f
-      - kubernetes/server.yaml
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1' # 替换为您的 GKE 集群所在区域
-      - 'CLOUDSDK_CONTAINER_CLUSTER=blueturbo-gke-test' # 替换为您的 GKE 集群名称
-      
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args: 
       - set
       - image
       - deployment/vector
