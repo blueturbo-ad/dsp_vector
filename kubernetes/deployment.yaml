@@ -19,6 +19,25 @@ spec:
       labels:
         app: vector
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - dsp-bid-server
+            topologyKey: "kubernetes.io/hostname"
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - vector
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: vector-container
         image: $IMAGE
