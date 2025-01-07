@@ -21,7 +21,6 @@ ENV VECTOR_VERSION=0.28.2
 RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz  && \
 tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
 mv vector-x86_64-unknown-linux-musl vector && \
-mv vector /usr/local/bin/ && \
 rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 # wget https://packages.timber.io/vector/0.28.2/vector-0.28.2-x86_64-unknown-linux-musl.tar.gz && \
 
@@ -30,8 +29,9 @@ rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 COPY vector.yaml /etc/vector/vector.yaml
 
 # 暴露端口
-EXPOSE 9092 2181 9000
+EXPOSE 9000
+#EXPOSE 9092 2181 9000
 
 # 启动 Kafka、Zookeeper 和 Vector
-#CMD ["vector", "-c", "/etc/vector/vector.yaml"]
-CMD ["sh", "-c", "bin/zookeeper-server-start.sh config/zookeeper.properties & bin/kafka-server-start.sh config/server.properties & vector --config /etc/vector/vector.yaml"]
+CMD ["vector/bin/vector", "-c", "/etc/vector/vector.yaml"]
+#CMD ["sh", "-c", "bin/zookeeper-server-start.sh config/zookeeper.properties & bin/kafka-server-start.sh config/server.properties & vector --config /etc/vector/vector.yaml"]
