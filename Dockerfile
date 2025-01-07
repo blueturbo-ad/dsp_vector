@@ -1,9 +1,8 @@
-FROM timberio/vector:0.31.0
 # 使用基础镜像
-# FROM ubuntu:20.04
+FROM ubuntu:20.04
 
 # 安装必要的工具和 Java
-# RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless
+RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless
 
 # 安装 Kafka
 #ENV KAFKA_VERSION=3.3.1
@@ -16,13 +15,13 @@ FROM timberio/vector:0.31.0
 
 
 # 设置环境变量
-# ENV VECTOR_VERSION=0.28.2
+ENV VECTOR_VERSION=0.28.2
 
 # 安装 Vector
-# RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz  && \
-# tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
-# mv vector-x86_64-unknown-linux-musl vector && \
-# rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
+RUN wget https://packages.timber.io/vector/$VECTOR_VERSION/vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz  && \
+tar -xzf vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz && \
+mv vector-x86_64-unknown-linux-musl vector && \
+rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 # wget https://packages.timber.io/vector/0.28.2/vector-0.28.2-x86_64-unknown-linux-musl.tar.gz && \
 
 # 创建 Vector 目录 解决vector data_dir挂载文件路径
