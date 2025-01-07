@@ -25,8 +25,7 @@ rm vector-$VECTOR_VERSION-x86_64-unknown-linux-musl.tar.gz
 # wget https://packages.timber.io/vector/0.28.2/vector-0.28.2-x86_64-unknown-linux-musl.tar.gz && \
 
 # 创建 Vector 目录 解决vector data_dir挂载文件路径
-RUN mkdir -p /var/lib/vector && \
-    chown -R vector:vector /var/lib/vector
+RUN mkdir -p /var/lib/vector 
 # 添加 Vector 配置文件
 COPY vector.yaml /etc/vector/vector.yaml
 
