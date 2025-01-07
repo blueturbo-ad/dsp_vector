@@ -18,7 +18,7 @@ spec:
         image: $IMAGE
         volumeMounts:
           - name: dsp-server-storage
-            mountPath: /logs  # Container path where logs will be available
+            mountPath: "/data"  # Container path where logs will be available
         resources:
           requests:
             memory: "128Mi"
