@@ -26,7 +26,7 @@ spec:
           - name: dsp-server-storage
             mountPath: /logs  # Container path where logs will be available
         ports:
-        - containerPort: 9000  # 容器监听的端口
+        - containerPort: 9000   # 容器监听的端口
           protocol: TCP
         resources:
           requests:
