@@ -5,10 +5,8 @@ FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless
 
 # 安装 Kafka
-#ENV KAFKA_VERSION=3.3.1
-#ENV SCALA_VERSION=2.13
-
-
+ENV KAFKA_VERSION=3.3.1
+ENV SCALA_VERSION=2.13
 
 RUN wget https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
     tar -xzf kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz 
