@@ -30,9 +30,9 @@ sinks:
     topic: "__remote_log_metadata"
 
     # 启用 SSL/TLS 配置
-    tls:
-      enabled: true
-      ca_file: "/etc/ssl/certs/ca-certificates.crt"  # 常见的 CA 证书路径
+    #tls:
+    #  enabled: true
+    #  ca_file: "/etc/ssl/certs/ca-certificates.crt"  # 常见的 CA 证书路径
     
         # SASL 配置
     #sasl:
