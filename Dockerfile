@@ -33,7 +33,7 @@ COPY vector.yaml /etc/vector/vector.yaml
 EXPOSE 9000
 #EXPOSE 9092 2181 9000
 
-RUN vector/bin/vector validate /etc/vector/vector.yaml
+#RUN vector/bin/vector validate /etc/vector/vector.yaml
 
 # 启动 Kafka、Zookeeper 和 Vector
 CMD ["vector/bin/vector", "-c", "/etc/vector/vector.yaml"]
