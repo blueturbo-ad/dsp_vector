@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # 安装必要的工具和 Java
-RUN apt-get update 
+RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless
 
 # 安装 Kafka
 #ENV KAFKA_VERSION=3.3.1
