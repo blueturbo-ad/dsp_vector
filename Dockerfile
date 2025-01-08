@@ -2,17 +2,16 @@
 FROM ubuntu:20.04
 
 # 安装必要的工具和 Java
-RUN apt-get update && apt-get install -y wget gnupg openjdk-11-jre-headless
+RUN apt-get update 
 
 # 安装 Kafka
 #ENV KAFKA_VERSION=3.3.1
 #ENV SCALA_VERSION=2.13
 
-#RUN wget https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
-#    tar -xzf kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
-#    mv kafka_${SCALA_VERSION}-${KAFKA_VERSION} /opt/kafka && \
-#    rm kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
+
+RUN wget https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
+    tar -xzf kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz 
 
 # 设置环境变量
 ENV VECTOR_VERSION=0.28.2

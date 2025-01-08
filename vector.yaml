@@ -14,17 +14,13 @@ sources:
     include:
       - "/logs/bid_logger*.log"
 
-  vector_tcp_source:
-    type: socket
-    address: "0.0.0.0:9000"
-    mode: tcp
-
 sinks:
   out_to_kafka:
     type: kafka
     inputs:
       - system_logger
-
+      - framework_logger
+      - bid_logger
 
     bootstrap_servers: "bootstrap.blueturbo-sg-kafka.asia-southeast1.managedkafka.blueturbo.cloud.goog:9092"
     topic: "__remote_log_metadata"
