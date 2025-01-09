@@ -2,17 +2,17 @@ sources:
   system_logger:
     type: file
     include:
-      - "/logs/system_logger*.log"
+      - "/logs/${POD_NAME}/system_logger*.log"
 
   framework_logger:
     type: file
     include:
-      - "/logs/framework_logger*.log"
+      - "/logs/${POD_NAME}/framework_logger*.log"
 
   bid_logger:
     type: file
     include:
-      - "/logs/bid_logger*.log"
+      - "/logs/${POD_NAME}/bid_logger*.log"
 
 sinks:
   out_to_kafka:
